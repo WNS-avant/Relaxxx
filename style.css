@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Bungee+Spice&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+
+#video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -10;
+}
+
+
+body {
+    font-family: "Bungee Spice", sans-serif;
+    color: snow;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    backdrop-filter: blur(10px);
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    animation: gradient 2s infinite alternate linear;
+    background: hsl(224, 38%, 41%);
+}
+
+
+@keyframes gradient {
+
+    100% {
+        background: hsl(338, 38%, 41%);
+    }
+
+
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 450px;
+    width: 450px;
+    margin: auto;
+    position: relative;
+    transform: scale(1);
+}
+
+.gradient-circle {
+    background: conic-gradient(#0044ff,
+            /* First color */
+            #484b54 33.33%,
+            /* First color ends */
+            #3366ff 33.33%,
+            /* Second color starts */
+            #3366ff 66.66%,
+            /* Second color ends */
+            #b7bccc 66.66%,
+            /* Third color starts */
+            #324dac 80%,
+            /* Third color starts */
+            #b7bccc 100%);
+    rotate: 240deg;
+    height: 350px;
+    width: 350px;
+    position: absolute;
+    z-index: -2;
+    border-radius: 50%;
+}
+
+.circle {
+    background-color: #2f1a1a;
+    height: 75%;
+    width: 75%;
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.pointer-container {
+    position: absolute;
+    top: 20px;
+    width: 20px;
+    height: 210px;
+    animation: rotatePointer 7.5s linear forwards infinite;
+    transform-origin: bottom center;
+}
+
+.pointer {
+    background-color: aqua;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    display: block;
+    border: 1px solid green;
+}
+
+
+@keyframes rotatePointer {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+.container.grow {
+    animation: grow 2.45s linear forwards;
+}
+
+.container.shrink {
+    animation: shrink 2.5s linear forwards;
+}
+
+.container .gradient-circle {
+    animation: growShadow 2.45s linear forwards;
+    animation: shrinkShadow 2.5s linear forwards
+}
+
+@keyframes grow {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes shrink {
+    from {
+        transform: scale(1.2);
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+
+
+@keyframes growShadow {
+    from {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    to {
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8);
+    }
+}
+
+@keyframes shrinkShadow {
+    from {
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    to {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+}
